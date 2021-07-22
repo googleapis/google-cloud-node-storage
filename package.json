@@ -64,7 +64,7 @@
     "hash-stream-validation": "^0.2.2",
     "mime": "^2.2.0",
     "mime-types": "^2.0.8",
-    "onetime": "^5.1.0",
+    "onetime": "^6.0.0",
     "p-limit": "^3.0.1",
     "pumpify": "^2.0.0",
     "snakeize": "^0.1.0",
