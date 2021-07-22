@@ -3737,7 +3737,7 @@ class Bucket extends ServiceObject {
               .pipe(writable)
               .on('error', err => {
                 if (
-                  isMultipart &&
+                  (isMultipart || options.resumable) &&
                   this.storage.retryOptions.autoRetry &&
                   this.storage.retryOptions.retryableErrorFn!(err)
                 ) {

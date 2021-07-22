@@ -4107,7 +4107,7 @@ describe('File', () => {
         assert.ok(retryCount === 2);
       });
 
-      it('non-multipart upload should not retry', async () => {
+      it('resumable upload should retry', async () => {
         const options = {resumable: true};
         let retryCount = 0;
         file.createWriteStream = () => {
@@ -4118,7 +4118,7 @@ describe('File', () => {
           await file.save(DATA, options);
           throw Error('unreachable');
         } catch (e) {
-          assert.strictEqual(e.message, 'first error');
+          assert.strictEqual(e.message, 'unreachable');
         }
       });
     });

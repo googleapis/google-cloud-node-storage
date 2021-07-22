@@ -3625,7 +3625,7 @@ class File extends ServiceObject<File> {
           const writable = this.createWriteStream(options)
             .on('error', err => {
               if (
-                isMultipart &&
+                (isMultipart || options.resumable) &&
                 this.storage.retryOptions.autoRetry &&
                 this.storage.retryOptions.retryableErrorFn!(err)
               ) {
